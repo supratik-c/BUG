@@ -22,9 +22,6 @@ public class BasePlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        isGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance, GroundMask);
-
         if (isGrounded && Velocity.y < 0) 
         {
             Velocity.y = -2f;
@@ -46,5 +43,10 @@ public class BasePlayerMovement : MonoBehaviour
         Velocity.y += gravity * Time.deltaTime;
 
         _characterController.Move(Velocity * Time.deltaTime);
+    }
+
+	private void FixedUpdate()
+	{
+        isGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance, GroundMask);
     }
 }
