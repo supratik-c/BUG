@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class Pistol : Weapon
 {
-
-
-    private void Awake()
-    {
-        _AudioSource.clip = Sound;
-    }
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +22,7 @@ public class Pistol : Weapon
     public override void Fire()
     {
         _SpriteAnimator.StartAnimation();
-        _AudioSource.Play();
+        _AudioSource.PlayOneShot(Sound);
     }
 
 }
