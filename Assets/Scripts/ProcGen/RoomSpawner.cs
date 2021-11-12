@@ -26,8 +26,9 @@ public class RoomSpawner : MonoBehaviour
 
 	public void Spawn()
 	{
-		if (_RoomLists.SpawnedRooms == _RoomLists.MaxRoomsToSpawn || Spawned) 
+		if (_RoomLists.SpawnedRooms == _RoomLists.MaxRoomsToSpawn || Spawned || HitSomething()) 
 		{
+			Destroy(gameObject);
 			return;
 		}
 		GameObject spawnedRoom = null;
@@ -35,6 +36,9 @@ public class RoomSpawner : MonoBehaviour
 		{
 			case OpeningDirection.Top:
 				roomIndex = Random.Range(0, _RoomLists.BottomRooms.Count);
+
+
+
 				spawnedRoom = Instantiate(_RoomLists.BottomRooms[roomIndex]);
 				break;
 			case OpeningDirection.Bottom:
@@ -58,22 +62,41 @@ public class RoomSpawner : MonoBehaviour
 		spawnedRoom.name = spawnedRoom.name + " Spawned by " + transform.parent.parent.name;
 	}
 
-	private void OnTriggerEnter(Collider other)
+	public bool HitSomething() 
 	{
-		RoomSpawner spawner = other.GetComponent<RoomSpawner>();
+		List<Collider> colliders = new List<Collider>();
 
-		Debug.Log($"TE called from {gameObject.name}", gameObject);
+		colliders.AddRange(Physics.OverlapSphere(transform.position,.5f));
 
-
-		if (!spawner) 
+		foreach (Collider col in colliders) 
 		{
-			Destroy(gameObject);
-			return;
+			if (!col.transform.IsChildOf(transform.parent)) 
+			{
+				//Debug.Log($"We hit {col.name}");
+				return true;
+			}
 		}
 
-		if (other.CompareTag("SpawnPoint") && spawner.Spawned) 
+		return false;
+		 
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		//RoomSpawner spawner = other.GetComponent<RoomSpawner>();
+
+		//Debug.Log($"TE called from {gameObject.name}", gameObject);
+
+
+		//if (!spawner) 
 		{
-			Destroy(gameObject);
+			//Destroy(gameObject);
+			//return;
+		}
+
+		//if (other.CompareTag("SpawnPoint") && spawner.Spawned) 
+		{
+			//Destroy(gameObject);
 		}
 
 	}

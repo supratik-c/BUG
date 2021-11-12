@@ -50,8 +50,8 @@ public class RoomLists : MonoBehaviour
                 if (spawner != null && !spawner.Spawned) 
                 {
                     spawner.Spawn();
-                    yield return new WaitForFixedUpdate();
-                    //yield return new WaitForEndOfFrame();
+                    //yield return new WaitForFixedUpdate()
+                    yield return new WaitForEndOfFrame();
                     //if (spawner.gameObject != null) 
                     { 
                         //Destroy(spawner.gameObject);
@@ -59,7 +59,7 @@ public class RoomLists : MonoBehaviour
                 }
             }
 
-            //yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
         }
         _NavMeshSurface.BuildNavMesh();
     }
