@@ -355,8 +355,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 444746575}
+  - component: {fileID: 444746576}
   m_Layer: 0
-  m_Name: RoomGen
+  m_Name: CubeGen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -376,6 +377,21 @@ Transform:
   m_Father: {fileID: 891636022}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &444746576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444746574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7d4ee9bbdb77045a577fd2975ba380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToSpawn: {fileID: 5888301911926434598, guid: 080f0b8f86174484d96dda505585d345, type: 3}
+  numToCopy: 0
+  spawnSphereRadius: 100
 --- !u!1 &670501960
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +458,7 @@ MonoBehaviour:
   - {fileID: 2489110647528239323, guid: 7d7c5e1539b5ca646be4635dd857ac13, type: 3}
   - {fileID: 2171042475341893546, guid: 7f0dc84f7e40254469880cc4a418618c, type: 3}
   _NavMeshSurface: {fileID: 1936662534}
+  RoomPoses: []
 --- !u!1 &891636021
 GameObject:
   m_ObjectHideFlags: 0

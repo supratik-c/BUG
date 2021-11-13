@@ -18,12 +18,6 @@ public class RoomSpawner : MonoBehaviour
 	{
 		_RoomLists = FindObjectOfType<RoomLists>();
 	}
-
-	private void Start()
-	{
-		//Invoke("Spawn",0.1f);
-	}
-
 	public void Spawn()
 	{
 		if (_RoomLists.SpawnedRooms == _RoomLists.MaxRoomsToSpawn || Spawned || HitSomething()) 
@@ -36,9 +30,6 @@ public class RoomSpawner : MonoBehaviour
 		{
 			case OpeningDirection.Top:
 				roomIndex = Random.Range(0, _RoomLists.BottomRooms.Count);
-
-
-
 				spawnedRoom = Instantiate(_RoomLists.BottomRooms[roomIndex]);
 				break;
 			case OpeningDirection.Bottom:
@@ -59,46 +50,16 @@ public class RoomSpawner : MonoBehaviour
 		
 		spawnedRoom.transform.position = transform.position;
 
-		spawnedRoom.name = spawnedRoom.name + " Spawned by " + transform.parent.parent.name;
+		//spawnedRoom.name = spawnedRoom.name + " Spawned by " + transform.parent.parent.name;
+		_RoomLists.RoomPoses.Add(spawnedRoom.transform.position);
 	}
 
 	public bool HitSomething() 
 	{
-		List<Collider> colliders = new List<Collider>();
-
-		colliders.AddRange(Physics.OverlapSphere(transform.position,.5f));
-
-		foreach (Collider col in colliders) 
+		if (_RoomLists.RoomPoses.Contains(transform.position)) 
 		{
-			if (!col.transform.IsChildOf(transform.parent)) 
-			{
-				//Debug.Log($"We hit {col.name}");
-				return true;
-			}
+			return true;
 		}
-
 		return false;
-		 
 	}
-
-	private void OnTriggerEnter(Collider other)
-	{
-		//RoomSpawner spawner = other.GetComponent<RoomSpawner>();
-
-		//Debug.Log($"TE called from {gameObject.name}", gameObject);
-
-
-		//if (!spawner) 
-		{
-			//Destroy(gameObject);
-			//return;
-		}
-
-		//if (other.CompareTag("SpawnPoint") && spawner.Spawned) 
-		{
-			//Destroy(gameObject);
-		}
-
-	}
-
 }

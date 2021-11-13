@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Diagnostics;
 
 public class RoomLists : MonoBehaviour
 {
@@ -18,9 +19,12 @@ public class RoomLists : MonoBehaviour
 
     public NavMeshSurface _NavMeshSurface;
 
+    public List<Vector3> RoomPoses = new List<Vector3>();
+
 	private void Awake()
 	{
         SpawnedRooms = 0;
+        RoomPoses.Add(Vector3.zero);
 	}
 
 	private void Start()
@@ -28,8 +32,26 @@ public class RoomLists : MonoBehaviour
         StartCoroutine(spawnRooms());
 	}
 
+    private void FindClose() 
+    {
+        foreach (Vector3 pos in RoomPoses) 
+        {
+            foreach (Vector3 postocheck in RoomPoses) 
+            {
+                if (postocheck != pos && Vector3.Distance(pos,postocheck) < 1) 
+                {
+                    UnityEngine.Debug.Log($"Found 2 poses close together {pos} and {postocheck}");
+                }
+            }
+        }
+    }
+
 	IEnumerator spawnRooms() 
     {
+        Stopwatch sw = new Stopwatch();
+
+        sw.Start();
+
         while (SpawnedRooms < MaxRoomsToSpawn || spawningDone) 
         {
             List<RoomSpawner> ActiveSpawnPoints = new List<RoomSpawner>();
@@ -40,7 +62,7 @@ public class RoomLists : MonoBehaviour
             {
                 spawningDone = true;
 
-                Debug.Log("Found No Spawn Points");
+                UnityEngine.Debug.Log("Found No Spawn Points");
                 _NavMeshSurface.BuildNavMesh();
                 yield break;
             }
@@ -50,18 +72,18 @@ public class RoomLists : MonoBehaviour
                 if (spawner != null && !spawner.Spawned) 
                 {
                     spawner.Spawn();
-                    //yield return new WaitForFixedUpdate()
-                    yield return new WaitForEndOfFrame();
-                    //if (spawner.gameObject != null) 
-                    { 
-                        //Destroy(spawner.gameObject);
-                    }
+                    
+                    Destroy(spawner.gameObject);
                 }
-            }
+                yield return new WaitForEndOfFrame();
 
+            }
             yield return new WaitForEndOfFrame();
         }
         _NavMeshSurface.BuildNavMesh();
+        FindClose();
+        sw.Stop();
+        UnityEngine.Debug.Log($"Time taken = {sw.Elapsed}");
     }
 
 }
