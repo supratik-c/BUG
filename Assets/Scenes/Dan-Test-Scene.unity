@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.60511225, g: 0.5082545, b: 0.44523707, a: 1}
+  m_IndirectSpecularColor: {r: 0.6034702, g: 0.5062171, b: 0.443401, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ac56b7e0e599641a4f089e4d79358f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxRoomsToSpawn: 1000
+  MaxRoomsToSpawn: 100
   SpawnedRooms: 0
   BottomRooms:
   - {fileID: 8032909510154779516, guid: a6b1bad469235cd45a1ee94a731f6fb6, type: 3}
@@ -459,6 +459,7 @@ MonoBehaviour:
   - {fileID: 2171042475341893546, guid: 7f0dc84f7e40254469880cc4a418618c, type: 3}
   _NavMeshSurface: {fileID: 1936662534}
   RoomPoses: []
+  enemy: {fileID: 915855941}
 --- !u!1 &891636021
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +540,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5000001
-  m_Speed: 80
+  m_Speed: 8
   m_Acceleration: 10000
   avoidancePriority: 50
   m_AngularSpeed: 10000

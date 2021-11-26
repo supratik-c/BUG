@@ -21,10 +21,15 @@ public class RoomLists : MonoBehaviour
 
     public List<Vector3> RoomPoses = new List<Vector3>();
 
+    private int EnemyCount;
+
+    public GameObject enemy;
+
 	private void Awake()
 	{
         SpawnedRooms = 0;
         RoomPoses.Add(Vector3.zero);
+        EnemyCount = MaxRoomsToSpawn / 3;
 	}
 
 	private void Start()
@@ -43,6 +48,28 @@ public class RoomLists : MonoBehaviour
                     UnityEngine.Debug.Log($"Found 2 poses close together {pos} and {postocheck}");
                 }
             }
+        }
+    }
+
+    private void SpawnEnemy() 
+    {
+        List<Vector3> validRooms = new List<Vector3>();
+        for (int i = 0;i < RoomPoses.Count;i++)
+        {
+            if (Vector3.Distance(RoomPoses[i],Vector3.zero) > 30) 
+            {
+                validRooms.Add(RoomPoses[i]);
+            }
+        } 
+
+
+
+
+        for (int i = 0; i < EnemyCount; i++) 
+        {
+            Vector3 spawnPoint = ((Random.insideUnitSphere * 4) + validRooms[Random.Range(0, validRooms.Count)] ) /* 4*/;
+
+            Instantiate(enemy, spawnPoint,Quaternion.identity);
         }
     }
 
@@ -84,6 +111,7 @@ public class RoomLists : MonoBehaviour
         FindClose();
         sw.Stop();
         UnityEngine.Debug.Log($"Time taken = {sw.Elapsed}");
+        SpawnEnemy();
     }
 
 }
