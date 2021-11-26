@@ -25,12 +25,20 @@ public class RoomLists : MonoBehaviour
 
     public GameObject enemy;
 
+    private Transform roomParent;
+    private Transform enemyParent;
+
 	private void Awake()
 	{
         SpawnedRooms = 0;
         RoomPoses.Add(Vector3.zero);
         EnemyCount = MaxRoomsToSpawn / 3;
-	}
+        roomParent = new GameObject().transform;
+        roomParent.name = "RoomParent";
+        enemyParent = new GameObject().transform;
+        enemyParent.name = "enemyParent";
+
+    }
 
 	private void Start()
 	{
@@ -69,7 +77,8 @@ public class RoomLists : MonoBehaviour
         {
             Vector3 spawnPoint = ((Random.insideUnitSphere * 4) + validRooms[Random.Range(0, validRooms.Count)] ) /* 4*/;
 
-            Instantiate(enemy, spawnPoint,Quaternion.identity);
+            Instantiate(enemy, spawnPoint,Quaternion.identity,enemyParent);
+            enemy.GetComponent<AgentNavigation>().Spawner = this;
         }
     }
 
@@ -98,7 +107,7 @@ public class RoomLists : MonoBehaviour
             {
                 if (spawner != null && !spawner.Spawned) 
                 {
-                    spawner.Spawn();
+                    spawner.Spawn(roomParent);
                     
                     Destroy(spawner.gameObject);
                 }
