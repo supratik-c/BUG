@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [System.Serializable]
 public class Pistol : Weapon
@@ -10,12 +11,27 @@ public class Pistol : Weapon
 
     public Transform RayOrigin;
 
-    public override void Fire()
+    private float lastShotTimer;
+
+	private void Update()
+	{
+        lastShotTimer += Time.deltaTime;
+	}
+
+	public override void Fire()
     {
+        if (lastShotTimer < RateOfFire) 
+        {
+            
+            return;
+        }
+
         _SpriteAnimator.StartAnimation();
         _AudioSource.PlayOneShot(Sound);
 
         RaycastHit hit;
+
+        
         if (Physics.Raycast(RayOrigin.position, RayOrigin.forward, out hit, 50, Mask,QueryTriggerInteraction.Ignore))
         {
             Hitting = hit.transform.gameObject;
@@ -25,7 +41,7 @@ public class Pistol : Weapon
                 enemy.TakeDamage((int)Damage);
             }
         }
-
+        lastShotTimer = 0;
     }
 
 	public override void Empty()
