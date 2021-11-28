@@ -13,7 +13,14 @@ public class Pistol : Weapon
 
     private float lastShotTimer;
 
-	private void Update()
+
+
+    public void Awake()
+    {
+        _SpriteAnimator.SetSprites(fireSprites);
+    }
+
+    private void Update()
 	{
         lastShotTimer += Time.deltaTime;
 	}

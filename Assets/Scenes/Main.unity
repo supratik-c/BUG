@@ -222,6 +222,7 @@ MonoBehaviour:
   RoomPoses: []
   Enemys:
   - {fileID: 1426488346610449188, guid: e987b9f0ffbcd86449b3ab8b5a29660a, type: 3}
+  - {fileID: 4621125058230253682, guid: 94c4ab1982d869c459f4f199cc2a31cc, type: 3}
 --- !u!1 &342541437
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,6 +661,7 @@ GameObject:
   - component: {fileID: 1194304444}
   - component: {fileID: 1194304443}
   - component: {fileID: 1194304442}
+  - component: {fileID: 1194304447}
   m_Layer: 5
   m_Name: pistol
   m_TagString: Untagged
@@ -796,6 +798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 25
   _SpriteAnimator: {fileID: 1194304444}
+  _EmptyAnimator: {fileID: 1194304444}
   _AudioSource: {fileID: 1194304442}
   DispersionAngle: 5
   ProjectileCount: 0
@@ -808,6 +811,27 @@ MonoBehaviour:
   Mask:
     serializedVersion: 2
     m_Bits: 3072
+  fireSprites:
+  - {fileID: 21300000, guid: f8f7de846ce750440b681b3d41cacb6b, type: 3}
+  - {fileID: 21300000, guid: f0552f76a7264ee41bbc7775664ab784, type: 3}
+  - {fileID: 21300000, guid: f0552f76a7264ee41bbc7775664ab784, type: 3}
+  - {fileID: 21300000, guid: 73fe2e83f4ceb674ab6ee22fdd6890da, type: 3}
+  - {fileID: 21300000, guid: de7a792a862bfcf4caa2769c72736c2e, type: 3}
+  - {fileID: 21300000, guid: 07430eceec754c8458898c7791bfa849, type: 3}
+  - {fileID: 21300000, guid: 293cd02224b13ec4c97cefab2b2b01c5, type: 3}
+  - {fileID: 21300000, guid: 293cd02224b13ec4c97cefab2b2b01c5, type: 3}
+  - {fileID: 21300000, guid: fc25a8153868b3d4d818cd3714131372, type: 3}
+  emptySprites:
+  - {fileID: 21300000, guid: 2165e617050de384ab1de7c2a6545ab8, type: 3}
+  - {fileID: 21300000, guid: c550befa334556d41832cc57219faae8, type: 3}
+  - {fileID: 21300000, guid: 3cadf9a12d94b314da6ffccd557c2d53, type: 3}
+  - {fileID: 21300000, guid: 3cadf9a12d94b314da6ffccd557c2d53, type: 3}
+  - {fileID: 21300000, guid: 4ba04f4c49921834ab0df07334c0aadd, type: 3}
+  - {fileID: 21300000, guid: 1be2594a1be0e5645b7efd59e64aedf7, type: 3}
+  - {fileID: 21300000, guid: 1be2594a1be0e5645b7efd59e64aedf7, type: 3}
+  - {fileID: 21300000, guid: 2bf0579b2b7d7ab4aa6f37bd73957a2f, type: 3}
+  - {fileID: 21300000, guid: 0884d2f048ec8734faab779c0870bf90, type: 3}
+  - {fileID: 21300000, guid: 0884d2f048ec8734faab779c0870bf90, type: 3}
   PlayerTransform: {fileID: 0}
   Hitting: {fileID: 0}
   RayOrigin: {fileID: 24868675}
@@ -823,16 +847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90fa69ab4f202d48845a53978861643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sprites:
-  - {fileID: 21300000, guid: f8f7de846ce750440b681b3d41cacb6b, type: 3}
-  - {fileID: 21300000, guid: f0552f76a7264ee41bbc7775664ab784, type: 3}
-  - {fileID: 21300000, guid: 73fe2e83f4ceb674ab6ee22fdd6890da, type: 3}
-  - {fileID: 21300000, guid: de7a792a862bfcf4caa2769c72736c2e, type: 3}
-  - {fileID: 21300000, guid: 07430eceec754c8458898c7791bfa849, type: 3}
-  - {fileID: 21300000, guid: 293cd02224b13ec4c97cefab2b2b01c5, type: 3}
-  - {fileID: 21300000, guid: fc25a8153868b3d4d818cd3714131372, type: 3}
-  - {fileID: 21300000, guid: 901d1758f11aa3d429ded3cb2487d312, type: 3}
-  - {fileID: 21300000, guid: 04e5feaea1b93b249ba7d8d80e272096, type: 3}
+  passedSprites: []
   _Image: {fileID: 1194304445}
   FrameDelay: 0.1
 --- !u!114 &1194304445
@@ -873,6 +888,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194304440}
   m_CullTransparentMesh: 1
+--- !u!114 &1194304447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194304440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90fa69ab4f202d48845a53978861643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passedSprites: []
+  _Image: {fileID: 1194304445}
+  FrameDelay: 0.1
 --- !u!1 &1397676818
 GameObject:
   m_ObjectHideFlags: 0

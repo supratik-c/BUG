@@ -239,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 0
   _SpriteAnimator: {fileID: 204828801}
+  _EmptyAnimator: {fileID: 204828801}
   _AudioSource: {fileID: 204828803}
   DispersionAngle: 0
   ProjectileCount: 0
@@ -248,6 +249,12 @@ MonoBehaviour:
   Sound: {fileID: 8300000, guid: 9684f5eb0586a574db398b8ebc0ebb4e, type: 3}
   EmptySound: {fileID: 8300000, guid: 8df47ec31789e294388836bb65d17d9a, type: 3}
   ammoDivisor: 2
+  Mask:
+    serializedVersion: 2
+    m_Bits: 0
+  PlayerTransform: {fileID: 0}
+  Hitting: {fileID: 0}
+  RayOrigin: {fileID: 0}
 --- !u!82 &204828803
 AudioSource:
   m_ObjectHideFlags: 0

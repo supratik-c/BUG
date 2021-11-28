@@ -19,14 +19,16 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
-        if (globalAmmo == 0)
+        if (globalAmmo <= 0)
         {
             // Play click sound
+            activeWeapon._SpriteAnimator.SetSprites(activeWeapon.emptySprites);
             activeWeapon.Empty();
             
         } else
         {
             // Fire gun
+            activeWeapon._SpriteAnimator.SetSprites(activeWeapon.fireSprites);
             activeWeapon.Fire();
             globalAmmo -= activeWeapon.ammoDivisor;
         }

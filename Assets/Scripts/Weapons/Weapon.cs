@@ -18,6 +18,8 @@ abstract public class Weapon : MonoBehaviour
     public AudioClip EmptySound;
     public int ammoDivisor;
     public LayerMask Mask;
+    public List<Sprite> fireSprites = new List<Sprite>();
+    public List<Sprite> emptySprites = new List<Sprite>();
 
     public Transform PlayerTransform;
 

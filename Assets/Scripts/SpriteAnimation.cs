@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SpriteAnimation : MonoBehaviour
 {
-    public List<Sprite> Sprites = new List<Sprite>();
+    public List<Sprite> passedSprites = new List<Sprite>();
 
     public Image _Image;
 
@@ -16,12 +16,12 @@ public class SpriteAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _Image.sprite = Sprites[0];
+        
     }
 
     IEnumerator Animate() 
     {
-        foreach(Sprite _sprite in Sprites)
+        foreach(Sprite _sprite in passedSprites)
         {
             _Image.sprite = _sprite;
             yield return new WaitForSeconds(FrameDelay);
@@ -30,8 +30,14 @@ public class SpriteAnimation : MonoBehaviour
 
     public void StartAnimation()
     {
+        
         StartCoroutine(Animate());
     }
 
+    public void SetSprites(List<Sprite> Sprites)
+    {
+        passedSprites = Sprites;
+        _Image.sprite = passedSprites[0];
+    }
 
 }
