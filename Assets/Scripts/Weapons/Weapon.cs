@@ -7,6 +7,7 @@ abstract public class Weapon : MonoBehaviour
 {
     public float Damage;
     public SpriteAnimation _SpriteAnimator;
+    public SpriteAnimation _EmptyAnimator;
     public AudioSource _AudioSource;
     public float DispersionAngle;
     public int ProjectileCount;

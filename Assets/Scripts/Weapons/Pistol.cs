@@ -14,7 +14,7 @@ public class Pistol : Weapon
 
     public override void Empty()
     {
-        _SpriteAnimator.StartAnimation();
+        _EmptyAnimator.StartAnimation();
         _AudioSource.PlayOneShot(EmptySound);
     }
 

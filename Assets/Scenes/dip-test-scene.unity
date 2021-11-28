@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: -2.09}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 3, y: -6.000061}
+  m_AnchoredPosition: {x: 3, y: -6}
   m_SizeDelta: {x: 540, y: 540}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &204828799
@@ -214,15 +214,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprites:
-  - {fileID: 21300000, guid: f8f7de846ce750440b681b3d41cacb6b, type: 3}
-  - {fileID: 21300000, guid: f0552f76a7264ee41bbc7775664ab784, type: 3}
-  - {fileID: 21300000, guid: 73fe2e83f4ceb674ab6ee22fdd6890da, type: 3}
-  - {fileID: 21300000, guid: de7a792a862bfcf4caa2769c72736c2e, type: 3}
-  - {fileID: 21300000, guid: 07430eceec754c8458898c7791bfa849, type: 3}
-  - {fileID: 21300000, guid: 293cd02224b13ec4c97cefab2b2b01c5, type: 3}
-  - {fileID: 21300000, guid: fc25a8153868b3d4d818cd3714131372, type: 3}
-  - {fileID: 21300000, guid: 901d1758f11aa3d429ded3cb2487d312, type: 3}
-  - {fileID: 21300000, guid: 04e5feaea1b93b249ba7d8d80e272096, type: 3}
+  - {fileID: 21300000, guid: da4e2ea3852b9e34fbd60bff443f9123, type: 3}
+  - {fileID: 21300000, guid: e511cc8e5b87f214b90352b3dc96ed85, type: 3}
+  - {fileID: 21300000, guid: ea9a00d6977c88f4c968493b83087201, type: 3}
+  - {fileID: 21300000, guid: 58c02795d6f905046963ee081888ae82, type: 3}
+  - {fileID: 21300000, guid: 01d52dd91aec7a34799d901f71bdd3c3, type: 3}
+  - {fileID: 21300000, guid: ff13515b9d760c04c8c6d852537b1c99, type: 3}
+  - {fileID: 21300000, guid: c585bcf715796994f8f73463f07fd82d, type: 3}
+  - {fileID: 21300000, guid: b77a6a66dcbb0c4419491bab047035e8, type: 3}
+  - {fileID: 21300000, guid: 5ed8e40c1cdf6b9468fa8f506011b134, type: 3}
   _Image: {fileID: 204828799}
   FrameDelay: 0.1
 --- !u!114 &204828802
@@ -247,7 +247,7 @@ MonoBehaviour:
   FailRate: 0
   Sound: {fileID: 8300000, guid: 9684f5eb0586a574db398b8ebc0ebb4e, type: 3}
   EmptySound: {fileID: 8300000, guid: 8df47ec31789e294388836bb65d17d9a, type: 3}
-  ammoDivisor: 0
+  ammoDivisor: 2
 --- !u!82 &204828803
 AudioSource:
   m_ObjectHideFlags: 0

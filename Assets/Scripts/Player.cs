@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public int health;
     public Weapon activeWeapon;
     public List<Weapon> availableWeapons = new List<Weapon>();
-    public int globalAmmo = 0;
+    public int globalAmmo;
     
 
 
@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log(globalAmmo);
         if (globalAmmo == 0)
         {
             // Play click sound
@@ -46,7 +45,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        globalAmmo = 10;
     }
 
     // Update is called once per frame
@@ -55,7 +54,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
-            Debug.Log($"Fire Rate = {activeWeapon.RateOfFire}");
+            Debug.Log($"Global = {globalAmmo}");
         }
     }
 }
