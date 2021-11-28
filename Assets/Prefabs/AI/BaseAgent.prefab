@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6677460402306833126}
   - component: {fileID: 998864575197274052}
   - component: {fileID: 8332642509731393998}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2066355051646228481}
   - component: {fileID: 6933946873010371725}
   - component: {fileID: 7970824420034134634}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BaseAgent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,10 @@ MonoBehaviour:
   Navigating: 0
   Agent: {fileID: 2066355051646228481}
   Spawner: {fileID: 0}
-  Visual: {fileID: 6677460402306833126}
+  CurrentlyHitting: {fileID: 0}
+  VisionLayers:
+    serializedVersion: 2
+    m_Bits: 1025
 --- !u!135 &7970824420034134634
 SphereCollider:
   m_ObjectHideFlags: 0

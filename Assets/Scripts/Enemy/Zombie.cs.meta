@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3fe6603caa6d4ac4cb37ffbf28edbdc1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Agent: {instanceID: 0}
+  - nav: {instanceID: 0}
+  - Gib: {fileID: 7021718585098262897, guid: 0bcb5fd2ccb14b04f8291eb8960e0a39, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
