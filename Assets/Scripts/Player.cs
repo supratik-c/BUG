@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log(globalAmmo);
         if (globalAmmo == 0)
         {
             // Play click sound
@@ -55,7 +54,6 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
-            Debug.Log($"Fire Rate = {activeWeapon.RateOfFire}");
         }
     }
 }

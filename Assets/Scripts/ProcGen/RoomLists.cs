@@ -23,7 +23,9 @@ public class RoomLists : MonoBehaviour
 
     private int EnemyCount;
 
-    public GameObject enemy;
+    //public GameObject enemy;
+
+    public List<GameObject> Enemys = new List<GameObject>();
 
     private Transform roomParent;
     private Transform enemyParent;
@@ -76,6 +78,8 @@ public class RoomLists : MonoBehaviour
         for (int i = 0; i < EnemyCount; i++) 
         {
             Vector3 spawnPoint = ((Random.insideUnitSphere * 4) + validRooms[Random.Range(0, validRooms.Count)] ) /* 4*/;
+
+            GameObject enemy = Enemys[Random.Range(0, Enemys.Count)];
 
             Instantiate(enemy, spawnPoint,Quaternion.identity,enemyParent);
             enemy.GetComponent<AgentNavigation>().Spawner = this;

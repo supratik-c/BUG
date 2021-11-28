@@ -16,10 +16,17 @@ abstract public class Weapon : MonoBehaviour
     public AudioClip Sound;
     public AudioClip EmptySound;
     public int ammoDivisor;
+    public LayerMask Mask;
+
+    public Transform PlayerTransform;
+
+	private void Awake()
+	{
+        PlayerTransform = Camera.main.transform;
+	}
 
 
-
-    abstract public void Fire();
+	abstract public void Fire();
     abstract public void Empty();
 
 

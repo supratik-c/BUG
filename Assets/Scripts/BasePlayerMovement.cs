@@ -17,6 +17,8 @@ public class BasePlayerMovement : MonoBehaviour
     void Start() 
     {
         Debug.Log("Never tell me the odds!");
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame

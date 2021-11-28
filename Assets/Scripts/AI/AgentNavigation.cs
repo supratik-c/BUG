@@ -18,6 +18,10 @@ public class AgentNavigation : MonoBehaviour
 
     //public Transform Visual;
 
+    public GameObject CurrentlyHitting;
+
+    public LayerMask VisionLayers;
+
 	public void Update()
 	{
         if (PlayerInRange) 
@@ -33,24 +37,29 @@ public class AgentNavigation : MonoBehaviour
 	{
         if (PlayerInRange)
         {
+            
+
             RaycastHit hit;
 
-            if (Physics.Raycast(transform.position, (PlayerTransform.position - transform.position).normalized, out hit, 15f))
+            if (Physics.Raycast(transform.position, (PlayerTransform.position - transform.position).normalized, out hit, 15f,VisionLayers))
             {
                 if (hit.transform.CompareTag("Player"))
                 {
                     PlayerSeen = true;
+                    
                 }
                 else
                 {
                     PlayerSeen = false;
                 }
+                CurrentlyHitting = hit.collider.gameObject;
             }
 
-            if (PlayerSeen && !Navigating)
+            if (PlayerSeen)
             {
                 StartCoroutine(MoveTo(PlayerTransform.position));
             }
+
 
 
         }
@@ -64,11 +73,14 @@ public class AgentNavigation : MonoBehaviour
     {
         float destinationRange = 3;
         Navigating = true;
+
+        Agent.ResetPath();
+
         Agent.SetDestination(point);
 
         while (Vector3.Distance(transform.position, point ) > destinationRange) 
         {
-            Debug.Log($"path status = {Agent.path.status}");
+            //Debug.Log($"path status = {Agent.path.status}");
             yield return new WaitForEndOfFrame();
         }
         Navigating = false;
