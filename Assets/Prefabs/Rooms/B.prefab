@@ -381,6 +381,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4177472694908850998}
     m_Modifications:
+    - target: {fileID: 92765295537428150, guid: 042ef3386dd95ac4d9849178dbc8bcb4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 04ff77b7ca654f148afa8fc3b15be215, type: 2}
+    - target: {fileID: 2897825596314787047, guid: 042ef3386dd95ac4d9849178dbc8bcb4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 04ff77b7ca654f148afa8fc3b15be215, type: 2}
+    - target: {fileID: 4458105102377962929, guid: 042ef3386dd95ac4d9849178dbc8bcb4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d682f505a9435194083fae15e0d781d1, type: 2}
+    - target: {fileID: 4544124814516528270, guid: 042ef3386dd95ac4d9849178dbc8bcb4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 04ff77b7ca654f148afa8fc3b15be215, type: 2}
     - target: {fileID: 4857682030488882692, guid: 042ef3386dd95ac4d9849178dbc8bcb4, type: 3}
       propertyPath: m_Name
       value: Master
