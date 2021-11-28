@@ -16,7 +16,7 @@ public class AgentNavigation : MonoBehaviour
 
     public RoomLists Spawner;
 
-    public Transform Visual;
+    //public Transform Visual;
 
 	public void Update()
 	{
@@ -25,7 +25,7 @@ public class AgentNavigation : MonoBehaviour
             Vector3 lookRot = (transform.position - PlayerTransform.position).normalized;
             lookRot.y = 0;
             Quaternion rotation = Quaternion.LookRotation(lookRot);
-            Visual.localRotation = rotation;
+            transform.localRotation = rotation;
         }
 	}
 
