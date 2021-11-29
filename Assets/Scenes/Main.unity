@@ -810,7 +810,7 @@ MonoBehaviour:
   ammoDivisor: 1
   Mask:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 3584
   fireSprites:
   - {fileID: 21300000, guid: f8f7de846ce750440b681b3d41cacb6b, type: 3}
   - {fileID: 21300000, guid: f0552f76a7264ee41bbc7775664ab784, type: 3}
@@ -832,6 +832,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2bf0579b2b7d7ab4aa6f37bd73957a2f, type: 3}
   - {fileID: 21300000, guid: 0884d2f048ec8734faab779c0870bf90, type: 3}
   - {fileID: 21300000, guid: 0884d2f048ec8734faab779c0870bf90, type: 3}
+  HitBlood: {fileID: 543714401355653187, guid: 9e2327ec88a66094c9e19662671bf608, type: 3}
+  HitDebris: {fileID: 7553383621877092493, guid: cc545c3190afa9a4b9674d77c1c11121, type: 3}
   PlayerTransform: {fileID: 0}
   Hitting: {fileID: 0}
   RayOrigin: {fileID: 24868675}
@@ -850,6 +852,7 @@ MonoBehaviour:
   passedSprites: []
   _Image: {fileID: 1194304445}
   FrameDelay: 0.1
+  Running: 0
 --- !u!114 &1194304445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,6 +906,7 @@ MonoBehaviour:
   passedSprites: []
   _Image: {fileID: 1194304445}
   FrameDelay: 0.1
+  Running: 0
 --- !u!1 &1397676818
 GameObject:
   m_ObjectHideFlags: 0

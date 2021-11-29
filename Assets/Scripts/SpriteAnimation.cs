@@ -11,6 +11,7 @@ public class SpriteAnimation : MonoBehaviour
 
     public float FrameDelay = 0.1f;
 
+    public bool Running;
 
 
     // Start is called before the first frame update
@@ -21,15 +22,22 @@ public class SpriteAnimation : MonoBehaviour
 
     IEnumerator Animate() 
     {
+        Running = true;
         foreach(Sprite _sprite in passedSprites)
         {
             _Image.sprite = _sprite;
             yield return new WaitForSeconds(FrameDelay);
         }
+        Running = false;
     }
 
     public void StartAnimation()
     {
+        if (Running) 
+        {
+            StopCoroutine(Animate());
+            _Image.sprite = passedSprites[0];
+        }
         
         StartCoroutine(Animate());
     }

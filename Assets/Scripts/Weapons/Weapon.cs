@@ -21,6 +21,9 @@ abstract public class Weapon : MonoBehaviour
     public List<Sprite> fireSprites = new List<Sprite>();
     public List<Sprite> emptySprites = new List<Sprite>();
 
+    public GameObject HitBlood;
+    public GameObject HitDebris;
+
     public Transform PlayerTransform;
 
 	private void Awake()
@@ -29,7 +32,7 @@ abstract public class Weapon : MonoBehaviour
 	}
 
 
-	abstract public void Fire();
+	abstract public bool Fire();
     abstract public void Empty();
 
 

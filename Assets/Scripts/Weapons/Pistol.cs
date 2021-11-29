@@ -25,12 +25,12 @@ public class Pistol : Weapon
         lastShotTimer += Time.deltaTime;
 	}
 
-	public override void Fire()
+	public override bool Fire()
     {
         if (lastShotTimer < RateOfFire) 
         {
             
-            return;
+            return false;
         }
 
         _SpriteAnimator.StartAnimation();
@@ -46,9 +46,16 @@ public class Pistol : Weapon
             {
                 EnemyBase enemy = hit.transform.GetComponent<EnemyBase>();
                 enemy.TakeDamage((int)Damage);
+
+                Destroy(Instantiate(HitBlood,hit.point,Quaternion.LookRotation(hit.normal,Vector3.up),hit.transform),5);
+            }
+            else 
+            {
+                Destroy(Instantiate(HitDebris, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up), hit.transform), 5);
             }
         }
         lastShotTimer = 0;
+        return true;
     }
 
 	public override void Empty()

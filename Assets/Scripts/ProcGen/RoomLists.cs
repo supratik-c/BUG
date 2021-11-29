@@ -101,7 +101,7 @@ public class RoomLists : MonoBehaviour
             if (ActiveSpawnPoints.Count == 0) 
             {
                 spawningDone = true;
-
+                SpawnedRooms = MaxRoomsToSpawn;
                 UnityEngine.Debug.Log("Found No Spawn Points");
                 _NavMeshSurface.BuildNavMesh();
                 yield break;

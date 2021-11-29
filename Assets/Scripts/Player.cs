@@ -8,12 +8,12 @@ public class Player : MonoBehaviour
     public Weapon activeWeapon;
     public List<Weapon> availableWeapons = new List<Weapon>();
     public int globalAmmo;
-    
+
 
 
     public void Awake()
     {
-        
+
         activeWeapon = availableWeapons[0];
     }
 
@@ -24,13 +24,16 @@ public class Player : MonoBehaviour
             // Play click sound
             activeWeapon._SpriteAnimator.SetSprites(activeWeapon.emptySprites);
             activeWeapon.Empty();
-            
+
         } else
         {
             // Fire gun
             activeWeapon._SpriteAnimator.SetSprites(activeWeapon.fireSprites);
-            activeWeapon.Fire();
-            globalAmmo -= activeWeapon.ammoDivisor;
+
+            if (activeWeapon.Fire()) 
+            {
+                globalAmmo -= activeWeapon.ammoDivisor;
+            }
         }
     }
 
@@ -41,13 +44,6 @@ public class Player : MonoBehaviour
         {
             // Ded
         }
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        globalAmmo = 10;
     }
 
     // Update is called once per frame
