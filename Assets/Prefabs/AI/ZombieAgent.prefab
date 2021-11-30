@@ -140,6 +140,8 @@ MonoBehaviour:
   PlayerSeen: 0
   Navigating: 0
   Agent: {fileID: 1426488346610449190}
+  PlayerTransform: {fileID: 0}
+  PlayerDistance: 0
   Spawner: {fileID: 0}
   CurrentlyHitting: {fileID: 0}
   VisionLayers:
@@ -170,7 +172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe6603caa6d4ac4cb37ffbf28edbdc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  AttackSpeed: 2.5
+  AttackRange: 1.5
+  Damage: 10
   MovementSpeed: 3
   Agent: {fileID: 0}
   nav: {fileID: 0}
@@ -185,6 +189,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c39cd577b47e22d48acb99e18ccb4e9a, type: 3}
   - {fileID: 8300000, guid: cd1b7778d37739c4082530179390ba1a, type: 3}
   AttackSounds: []
+  GM: {fileID: 0}
   _AudioSource: {fileID: 0}
   Gib: {fileID: 7021718585098262897, guid: 0bcb5fd2ccb14b04f8291eb8960e0a39, type: 3}
 --- !u!82 &6163335563837412470

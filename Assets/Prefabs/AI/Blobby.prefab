@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4621125058230253680}
   - component: {fileID: 4374949931589033212}
   - component: {fileID: 3608136111251628571}
-  - component: {fileID: 2814806119505315470}
+  - component: {fileID: 814724944132214805}
   - component: {fileID: 460209783900002080}
   m_Layer: 11
   m_Name: Blobby
@@ -140,6 +140,8 @@ MonoBehaviour:
   PlayerSeen: 0
   Navigating: 0
   Agent: {fileID: 4621125058230253680}
+  PlayerTransform: {fileID: 0}
+  PlayerDistance: 0
   Spawner: {fileID: 0}
   CurrentlyHitting: {fileID: 0}
   VisionLayers:
@@ -158,7 +160,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 30
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2814806119505315470
+--- !u!114 &814724944132214805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,11 +169,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4621125058230253682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fe6603caa6d4ac4cb37ffbf28edbdc1, type: 3}
+  m_Script: {fileID: 11500000, guid: d43adbe3a5f355643bbd4dd042e0ddd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
-  MovementSpeed: 3
+  AttackSpeed: 0.1
+  AttackRange: 1.5
+  Damage: 1
+  MovementSpeed: 9
   Agent: {fileID: 0}
   nav: {fileID: 0}
   HurtSounds:
@@ -185,6 +189,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c39cd577b47e22d48acb99e18ccb4e9a, type: 3}
   - {fileID: 8300000, guid: cd1b7778d37739c4082530179390ba1a, type: 3}
   AttackSounds: []
+  GM: {fileID: 0}
   _AudioSource: {fileID: 0}
   Gib: {fileID: 7021718585098262897, guid: 0bcb5fd2ccb14b04f8291eb8960e0a39, type: 3}
 --- !u!82 &460209783900002080

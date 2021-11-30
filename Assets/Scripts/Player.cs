@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,12 +10,16 @@ public class Player : MonoBehaviour
     public List<Weapon> availableWeapons = new List<Weapon>();
     public int globalAmmo;
 
+    public Slider HealthBar;
 
+    public GameManager GM;
 
     public void Awake()
     {
-
         activeWeapon = availableWeapons[0];
+        HealthBar.maxValue = health;
+        HealthBar.value = health;
+        GM = FindObjectOfType<GameManager>();
     }
 
     public void Shoot()
@@ -40,11 +45,16 @@ public class Player : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         health -= dmg;
+        HealthBar.value = health;
         if(health <= 0)
         {
             // Ded
+            GM.WinLose(false);
+            Debug.Log("Ded");
         }
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -52,7 +62,12 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
-            Debug.Log($"Global = {globalAmmo}");
+            //Debug.Log($"Global = {globalAmmo}");
+        }
+
+        if (transform.position.y < -5) 
+        {
+            TakeDamage(health + 10);
         }
     }
 }

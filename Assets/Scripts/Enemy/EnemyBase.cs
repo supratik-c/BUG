@@ -5,7 +5,10 @@ using UnityEngine.AI;
 
 abstract public class EnemyBase : MonoBehaviour
 {
+	[SerializeField]
     public int Health { get; set; }
+	public float AttackSpeed;
+	public float AttackRange;
     public int Damage;
     public float MovementSpeed;
 
@@ -17,6 +20,8 @@ abstract public class EnemyBase : MonoBehaviour
 	public List<AudioClip> DeathSounds = new List<AudioClip>();
 	public List<AudioClip> AttackSounds = new List<AudioClip>();
 
+	public GameManager GM;
+
 	public AudioSource _AudioSource;
 
 	public void Init()
@@ -25,6 +30,7 @@ abstract public class EnemyBase : MonoBehaviour
 		Agent.speed = MovementSpeed;
 		nav = GetComponent<AgentNavigation>();
 		_AudioSource = GetComponent<AudioSource>();
+		GM = FindObjectOfType<GameManager>();
 	}
 
 	abstract public void Attack();

@@ -30,20 +30,37 @@ public class RoomLists : MonoBehaviour
     private Transform roomParent;
     private Transform enemyParent;
 
+    public GameManager GM;
+
 	private void Awake()
 	{
         SpawnedRooms = 0;
         RoomPoses.Add(Vector3.zero);
-        EnemyCount = MaxRoomsToSpawn / 3;
+        
         roomParent = new GameObject().transform;
         roomParent.name = "RoomParent";
         enemyParent = new GameObject().transform;
         enemyParent.name = "enemyParent";
+        GM = FindObjectOfType<GameManager>();
 
+        int numRooms = PlayerPrefs.GetInt("RoomMod");
+        UnityEngine.Debug.Log(numRooms);
+        if (numRooms < 50)
+        {
+            MaxRoomsToSpawn = 50;
+        }
+        else 
+        {
+            MaxRoomsToSpawn = numRooms;
+        }
+        EnemyCount = MaxRoomsToSpawn / 3;
+        UnityEngine.Debug.Log($"max rooms to spawn = {MaxRoomsToSpawn}");
     }
 
 	private void Start()
 	{
+
+
         StartCoroutine(spawnRooms());
 	}
 
@@ -70,19 +87,22 @@ public class RoomLists : MonoBehaviour
             {
                 validRooms.Add(RoomPoses[i]);
             }
-        } 
+        }
 
-
-
+        if (validRooms.Count == 0) 
+        {
+            validRooms = RoomPoses;
+        }
 
         for (int i = 0; i < EnemyCount; i++) 
         {
-            Vector3 spawnPoint = ((Random.insideUnitSphere * 4) + validRooms[Random.Range(0, validRooms.Count)] ) /* 4*/;
+            Vector3 spawnPoint = (Random.insideUnitSphere * 4) + validRooms[Random.Range(0, validRooms.Count)];
 
             GameObject enemy = Enemys[Random.Range(0, Enemys.Count)];
 
             Instantiate(enemy, spawnPoint,Quaternion.identity,enemyParent);
             enemy.GetComponent<AgentNavigation>().Spawner = this;
+            GM.TotalEnemy += 1;
         }
     }
 
@@ -125,6 +145,7 @@ public class RoomLists : MonoBehaviour
         sw.Stop();
         UnityEngine.Debug.Log($"Time taken = {sw.Elapsed}");
         SpawnEnemy();
+        GM.Init();
     }
 
 }

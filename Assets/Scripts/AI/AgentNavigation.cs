@@ -12,7 +12,9 @@ public class AgentNavigation : MonoBehaviour
 
     public NavMeshAgent Agent;
 
-    Transform PlayerTransform = null;
+    public Transform PlayerTransform = null;
+
+    public float PlayerDistance;
 
     public RoomLists Spawner;
 
@@ -26,6 +28,7 @@ public class AgentNavigation : MonoBehaviour
 	{
         if (PlayerInRange) 
         {
+            PlayerDistance = Vector3.Distance(transform.position,PlayerTransform.position);
             Vector3 lookRot = (transform.position - PlayerTransform.position).normalized;
             lookRot.y = 0;
             Quaternion rotation = Quaternion.LookRotation(lookRot);
