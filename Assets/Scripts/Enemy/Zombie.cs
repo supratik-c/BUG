@@ -35,6 +35,12 @@ public class Zombie : EnemyBase
 
 		Destroy(gameObject);
 		Destroy(gib, 5);
+
+		// Chance to drop a health pickup on death
+		if (Random.Range(0, 100) < 5)
+        {
+
+        }
 		
 		//throw new System.NotImplementedException();
 	}
