@@ -21,6 +21,8 @@ abstract public class Weapon : MonoBehaviour
     public List<Sprite> fireSprites = new List<Sprite>();
     public List<Sprite> emptySprites = new List<Sprite>();
 
+    public Sprite CrossHair;
+
     public GameObject HitBlood;
     public GameObject HitDebris;
 

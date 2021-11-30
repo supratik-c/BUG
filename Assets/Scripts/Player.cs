@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
 
     public GameManager GM;
 
+    public Image CrossHair;
+
     public void Awake()
     {
         //activeWeapon = availableWeapons[1];
@@ -83,6 +85,7 @@ public class Player : MonoBehaviour
             }
         }
         CurrentIndex = index;
+        CrossHair.sprite = activeWeapon.CrossHair;
     }
 
 
