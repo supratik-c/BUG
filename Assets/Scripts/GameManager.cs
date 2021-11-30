@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public int EnemyRemain;
 
     public Text Score;
+    public Text Round;
 
     public RoomLists Gen;
 
@@ -24,9 +25,10 @@ public class GameManager : MonoBehaviour
 
 	public void Init() 
     {
+        //PlayerPrefs.DeleteKey("RoomMod");
         EnemyRemain = TotalEnemy;
         Score.text = $"{EnemyRemain}/{TotalEnemy}";
-        
+        Round.text = $"Round {PlayerPrefs.GetInt("Round")+1}";
     }
 
     public void MinusEnemy() 
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
         if (win)
         {
             PlayerPrefs.SetInt("RoomMod",Gen.MaxRoomsToSpawn + 5);
+            PlayerPrefs.SetInt("Round",PlayerPrefs.GetInt("Round")+1);
             Win.SetActive(true);
         }
         else 
