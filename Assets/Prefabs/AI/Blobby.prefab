@@ -179,18 +179,21 @@ MonoBehaviour:
   Agent: {fileID: 0}
   nav: {fileID: 0}
   HurtSounds:
-  - {fileID: 8300000, guid: 6e3e57b0410fa724bacf8bff73a87140, type: 3}
-  - {fileID: 8300000, guid: b0e86f7757b248b42bda17f7be2e8c99, type: 3}
-  - {fileID: 8300000, guid: aa704018c2c771c4d8f01847f1171c48, type: 3}
-  - {fileID: 8300000, guid: 82c68f388b6bb374aaaf07eefd819d22, type: 3}
-  - {fileID: 8300000, guid: e854846787deb4841a985c210c85c631, type: 3}
+  - {fileID: 8300000, guid: 39cf9930f7e32c24ca8ba58b84956917, type: 3}
+  - {fileID: 8300000, guid: 95c6c12fa6640e54388a820fa82beb3f, type: 3}
+  - {fileID: 8300000, guid: 02d4a4fb1fd418148afb672fc6bfe3ee, type: 3}
+  - {fileID: 8300000, guid: 62574111d9954844a8f3a11439843e12, type: 3}
+  - {fileID: 8300000, guid: 3a38c722dea552b4faa158177c0fa4b8, type: 3}
   DeathSounds:
-  - {fileID: 8300000, guid: e69fbeaa6c850e941b46c020a802fb7e, type: 3}
-  - {fileID: 8300000, guid: c39cd577b47e22d48acb99e18ccb4e9a, type: 3}
-  - {fileID: 8300000, guid: cd1b7778d37739c4082530179390ba1a, type: 3}
+  - {fileID: 8300000, guid: 0c838688e7fa45041982b2c3628a83d3, type: 3}
+  - {fileID: 8300000, guid: 7510714125e71f4419c99b288e56e72f, type: 3}
+  - {fileID: 8300000, guid: b34a3e9c33f052c45a5f8f951e5a085d, type: 3}
+  - {fileID: 8300000, guid: 3ddb7962867ea3449b776869bd631332, type: 3}
+  - {fileID: 8300000, guid: 598439afda9fdab4c8a47f0956cbd4ad, type: 3}
   AttackSounds: []
   GM: {fileID: 0}
   _AudioSource: {fileID: 0}
+  Dead: 0
   Gib: {fileID: 7021718585098262897, guid: 0bcb5fd2ccb14b04f8291eb8960e0a39, type: 3}
 --- !u!82 &460209783900002080
 AudioSource:

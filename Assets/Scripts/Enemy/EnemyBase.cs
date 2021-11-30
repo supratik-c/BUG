@@ -24,6 +24,7 @@ abstract public class EnemyBase : MonoBehaviour
 
 	public AudioSource _AudioSource;
 
+	public bool Dead = false;
 	public void Init()
 	{
 		Agent = GetComponent<NavMeshAgent>();
@@ -31,6 +32,7 @@ abstract public class EnemyBase : MonoBehaviour
 		nav = GetComponent<AgentNavigation>();
 		_AudioSource = GetComponent<AudioSource>();
 		GM = FindObjectOfType<GameManager>();
+		Dead = false;
 	}
 
 	abstract public void Attack();

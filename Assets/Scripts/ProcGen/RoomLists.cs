@@ -124,6 +124,11 @@ public class RoomLists : MonoBehaviour
                 SpawnedRooms = MaxRoomsToSpawn;
                 UnityEngine.Debug.Log("Found No Spawn Points");
                 _NavMeshSurface.BuildNavMesh();
+                FindClose();
+                sw.Stop();
+                UnityEngine.Debug.Log($"Time taken = {sw.Elapsed}");
+                SpawnEnemy();
+                GM.Init();
                 yield break;
             }
 

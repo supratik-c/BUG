@@ -11,6 +11,7 @@ public class Blobby : EnemyBase
 	void Start()
 	{
 		Init();
+		Health = 25;
 	}
 
 	// Update is called once per frame
@@ -68,8 +69,9 @@ public class Blobby : EnemyBase
 	{
 		Health -= damage;
 
-		if (Health <= 0)
+		if (Health <= 0 && !Dead)
 		{
+			Dead = true;
 			Die();
 			return;
 		}

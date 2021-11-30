@@ -31,7 +31,7 @@ public class BasePlayerMovement : MonoBehaviour
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-
+        Debug.Log($"x = {x } z = {z}");
         Vector3 move = transform.right * x + transform.forward * z;
 
         _characterController.Move(move * speed * Time.deltaTime);
