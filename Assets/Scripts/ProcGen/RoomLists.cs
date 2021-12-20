@@ -32,6 +32,8 @@ public class RoomLists : MonoBehaviour
 
     public GameManager GM;
 
+    public bool SpawnEnemys;
+
 	private void Awake()
 	{
         SpawnedRooms = 0;
@@ -80,6 +82,11 @@ public class RoomLists : MonoBehaviour
 
     private void SpawnEnemy() 
     {
+        if (!SpawnEnemys) 
+        {
+            return;
+        }
+
         List<Vector3> validRooms = new List<Vector3>();
         for (int i = 0;i < RoomPoses.Count;i++)
         {

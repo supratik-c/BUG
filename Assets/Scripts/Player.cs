@@ -60,6 +60,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void RecieveHealing(int healing) 
+    {
+        Debug.Log($"Health at {health} healing = {healing}");
+
+        health += healing;
+        if (health > 100) 
+        {
+            health = 100;
+        }
+        HealthBar.value = health;
+    }
+
     public void ChangeWeapon(int index) 
     {
         if (index > availableWeapons.Count - 1)

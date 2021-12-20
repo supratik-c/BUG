@@ -7,8 +7,9 @@ abstract public class PickUpBase : MonoBehaviour
 
     public float pickupRange;
     public Weapon wpn;
-    public Transform player, gunContainer, fpsCam;
-
+    public Player player;
+    public Transform gunContainer ;
+    public Transform fpsCam;
     
 
 
@@ -22,6 +23,7 @@ abstract public class PickUpBase : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            player = other.gameObject.GetComponent<Player>();
             PickUp();
         }
     }

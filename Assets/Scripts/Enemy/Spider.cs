@@ -52,6 +52,7 @@ public class Spider : EnemyBase
 		Destroy(gameObject);
 		Destroy(gib, 5);
 		GM.MinusEnemy();
+		Drop();
 	}
 
 	public override void OnTriggerEnter()

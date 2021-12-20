@@ -65,6 +65,7 @@ public class Zombie : EnemyBase
 
         }
 		//throw new System.NotImplementedException();
+		Drop();
 	}
 
 	public override void TakeDamage(int damage)

@@ -53,6 +53,7 @@ public class Blobby : EnemyBase
 		Destroy(gameObject);
 		Destroy(gib, 5);
 		GM.MinusEnemy();
+		Drop();
 	}
 
 	public override void OnTriggerEnter()

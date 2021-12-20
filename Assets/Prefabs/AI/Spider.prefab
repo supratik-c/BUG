@@ -289,6 +289,9 @@ MonoBehaviour:
   GM: {fileID: 0}
   _AudioSource: {fileID: 1318670008013699990}
   Dead: 0
+  Pickups:
+  - {fileID: 2461307187009564411, guid: 60cbddc0662edc94d8c20a06df15b03a, type: 3}
+  DropChance: {x: 1, y: 2}
   Gib: {fileID: 7021718585098262897, guid: 0bcb5fd2ccb14b04f8291eb8960e0a39, type: 3}
 --- !u!1 &6345309268514455597
 GameObject:

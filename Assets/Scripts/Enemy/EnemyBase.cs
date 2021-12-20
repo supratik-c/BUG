@@ -25,6 +25,11 @@ abstract public class EnemyBase : MonoBehaviour
 	public AudioSource _AudioSource;
 
 	public bool Dead = false;
+
+	public List<GameObject> Pickups = new List<GameObject>();
+
+	public Vector2 DropChance = Vector2.zero;
+
 	public void Init()
 	{
 		Agent = GetComponent<NavMeshAgent>();
@@ -38,6 +43,18 @@ abstract public class EnemyBase : MonoBehaviour
 	abstract public void Attack();
     abstract public void TakeDamage(int damage);
     abstract public void Die();
+
+	public void Drop() 
+	{
+		float Determiation = Random.Range(0,DropChance.y);
+
+		Debug.Log($"determination = {Determiation} drop x = {DropChance.x}");
+
+		if (Determiation <= DropChance.x) 
+		{
+			Instantiate(Pickups[Random.Range(0, Pickups.Count - 1)],transform.position,Quaternion.identity,null);
+		}
+	}
 
 	abstract public void OnTriggerEnter();
 	abstract public void OnTriggerExit();

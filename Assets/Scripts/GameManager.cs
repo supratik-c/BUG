@@ -17,15 +17,26 @@ public class GameManager : MonoBehaviour
     public GameObject Win;
     public GameObject Lose;
 
+    private bool Paused;
+
 	private void Awake()
 	{
         Win.SetActive(false);
         Lose.SetActive(false);
     }
 
+	private void Update()
+	{
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            Pause();
+        }
+	}
+
 	public void Init() 
     {
         //PlayerPrefs.DeleteKey("RoomMod");
+        //PlayerPrefs.DeleteAll();
         EnemyRemain = TotalEnemy;
         Score.text = $"{EnemyRemain}/{TotalEnemy}";
         Round.text = $"Round {PlayerPrefs.GetInt("Round")+1}";
@@ -61,5 +72,20 @@ public class GameManager : MonoBehaviour
     public void Reload() 
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void Pause() 
+    {
+        if (Paused)
+        {
+            Time.timeScale = 1;
+            Paused = false;
+        }
+        else 
+        {
+            Time.timeScale = 0;
+            Paused = true;
+        }
+
     }
 }

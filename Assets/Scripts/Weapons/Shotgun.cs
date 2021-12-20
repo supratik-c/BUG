@@ -41,11 +41,13 @@ public class Shotgun : Weapon
 
         for (int i = 0; i < ProjectileCount; i++) 
         {
-            Vector3 direction = RayOrigin.forward + new Vector3(Random.Range(-DispersionAngle,DispersionAngle),0,0);
-            Debug.DrawLine(RayOrigin.position, direction * 50, Color.magenta, 5);
+            //Vector3 direction = RayOrigin.forward + new Vector3(Random.Range(-DispersionAngle,DispersionAngle),0,0);
+            Vector3 direction = Quaternion.Euler(Random.Range(-DispersionAngle, DispersionAngle), Random.Range(-DispersionAngle, DispersionAngle), Random.Range(-DispersionAngle, DispersionAngle)) * RayOrigin.forward;
+            //Debug.DrawLine(RayOrigin.position, direction * 50, Color.magenta, 5);
+            Debug.DrawRay(RayOrigin.position, direction * 100, Color.magenta, 5);
             RaycastHit hit;
 
-            if (Physics.Raycast(RayOrigin.position, direction, out hit, 50, Mask,QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(RayOrigin.position, direction, out hit, 100, Mask,QueryTriggerInteraction.Ignore))
             {
                 Hitting = hit.transform.gameObject;
                 if (hit.transform.GetComponent<EnemyBase>())
